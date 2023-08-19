@@ -6,7 +6,7 @@ st.title('Uber pickups in NYC')
 
 st.text('Upload a file')
 uploaded_files = st.file_uploader("Choose an image to upload")
-# If a file is uploaded, display it on the right side.
+
 if uploaded_files is not None:
     image = uploaded_files.read()
     st.image(image)
