@@ -4,11 +4,11 @@ import numpy as np
 
 st.title('Uber pickups in NYC')
 
-uploaded_file = st.file_uploader('Choose Image to upload…', type = (["jpg", "jpeg","png"]))
-
-if uploaded_file is not None:
-    img = Image.open(uploaded_file)
-    st.image(img, caption = 'Uploaded image')
+uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
+for uploaded_file in uploaded_files:
+    bytes_data = uploaded_file.read()
+    st.write("filename:", uploaded_file.name)
+    st.write(bytes_data)
 
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
