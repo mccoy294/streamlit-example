@@ -7,6 +7,7 @@ st.title('Uber pickups in NYC')
 st.text('Upload a file')
 uploaded_files = st.file_uploader("Choose an image to upload")
 
+
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
             'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
