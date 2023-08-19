@@ -4,7 +4,7 @@ import numpy as np
 
 st.title('Uber pickups in NYC')
 
-uploaded_file = st.file_uploader("Upload your file here...", name="my_file", type=['png', 'jpeg', 'jpg'])
+uploaded_file = st.file_uploader("Upload your file here...", name="my_file")
 
 if uploaded_file is not None:
     st.image(uploaded_file)
