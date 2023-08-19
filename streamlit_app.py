@@ -4,13 +4,10 @@ import numpy as np
 
 st.title('Uber pickups in NYC')
 
-# Create a sidebar with a file upload widget.
-file_upload = st.sidebar.file_uploader('Upload an image', type='image')
+uploaded_file = st.file_uploader("Upload your file here...", type=['png', 'jpeg', 'jpg'])
 
-# If a file is uploaded, display it on the right side.
-if file_upload is not None:
-    image = file_upload.read()
-    st.image(image)
+if uploaded_file is not None:
+    st.image(uploaded_file)
 
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
