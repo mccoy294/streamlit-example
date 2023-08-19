@@ -4,6 +4,7 @@ import numpy as np
 
 st.title('Uber pickups in NYC')
 
+st.text('Upload a file')
 uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
 for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
