@@ -6,7 +6,8 @@ st.title('Uber pickups in NYC')
 
 st.text('Upload a file')
 uploaded_files = st.file_uploader("Choose an image to upload")
-
+if uploaded_files is not None:
+    st.text('image is displaying')
 
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
