@@ -20,7 +20,7 @@ data_load_state = st.text('Loading data...')
 data = load_data(10000)
 data_load_state.text("Done! (using st.cache_data)")
 
-if st.checkbox('Show raw data'):
+if st.checkbox('Show raw data', value='show_raw_data'):
     st.subheader('Raw data')
     st.write(data)
 
