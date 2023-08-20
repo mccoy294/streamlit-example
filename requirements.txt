@@ -3,6 +3,5 @@ pandas
 streamlit
 numpy
 PIL
-python3-opencv
 tesseract-ocr
 pytesseract
