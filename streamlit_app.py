@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
+from PIL import ImageDraw
 
 # Import the outline_identifier function from the ocr_identification module
 import cv2
@@ -31,12 +32,14 @@ def outline_identifier(image):
   for i in range(n_boxes):
     if float(d['conf'][i]) > 60:  # Check if confidence score is greater than 60
         (x, y, w, h) = (d['left'][i], d['top'][i], d['width'][i], d['height'][i])
-        img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        draw = PIL.ImageDraw.Draw(img)
+        draw.rectangle((x, y, x + w, y + h), outline=(0, 255, 0), width=2)
 
   #Show the image
-  cv2.imshow(img)
+  img.show()
 
   return img
+
 
 # Use the outline_identifier function to identify the text in the image
 ocr_image = outline_identifier(image)
