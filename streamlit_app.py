@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from PIL import Image
 
 st.title('Uber pickups in NYC')
 
@@ -8,6 +9,9 @@ st.text('Upload a file')
 uploaded_files = st.file_uploader("Choose an image to upload")
 if uploaded_files is not None:
     st.text('image is displaying')
+
+image = Image.open(uploaded_files)
+st.image(image, caption='Image to perform OCR Text Extraction')
 
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
