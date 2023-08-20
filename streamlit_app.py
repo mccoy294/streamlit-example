@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
-import ocr_identification
+from ocr_identification import outline_identifier
 
 st.title('Uber pickups in NYC')
 
@@ -13,6 +13,9 @@ if uploaded_files is not None:
 
 image = Image.open(uploaded_files)
 st.image(image, caption='Image to perform OCR Text Extraction')
+
+ocr_image = outline_identifier(image)
+st.image(ocr_image, caption='Bound each section of the image with these boxes')
 
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
