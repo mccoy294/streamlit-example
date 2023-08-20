@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 from ocr_identification import outline_identifier
+import cv2
+import pytesseract
+from pytesseract import Output
 
 st.title('Uber pickups in NYC')
 
@@ -13,6 +16,25 @@ if uploaded_files is not None:
 
 image = Image.open(uploaded_files)
 st.image(image, caption='Image to perform OCR Text Extraction')
+
+def outline_identifier(image):
+  #store the image input
+  img = image
+  
+  #Call pytesseract as an instance and pass in the image. Store the output as a dictionary of items
+  d = pytesseract.image_to_data(img, output_type=Output.DICT)
+
+  #Determine the number of boxes that will have to be drawn
+  n_boxes = len(d['text'])
+  #Draw the boxes for each text item in the dictionary
+  for i in range(n_boxes):
+    if float(d['conf'][i]) > 60:  # Check if confidence score is greater than 60
+        (x, y, w, h) = (d['left'][i], d['top'][i], d['width'][i], d['height'][i])
+        img = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
+  #Show the image
+  cv2.imshow(img)
+
 
 ocr_image = outline_identifier(image)
 st.image(ocr_image, caption='Bound each section of the image with these boxes')
