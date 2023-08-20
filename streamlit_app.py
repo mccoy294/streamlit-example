@@ -5,7 +5,6 @@ from PIL import Image
 from PIL import ImageDraw
 
 # Import the outline_identifier function from the ocr_identification module
-import cv2
 import pytesseract
 from pytesseract import Output
 
