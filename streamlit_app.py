@@ -2,10 +2,28 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
-from ocr_identification import outline_identifier
+
+# Import the outline_identifier function from the ocr_identification module
 import cv2
 import pytesseract
 from pytesseract import Output
+
+st.title('Uber pickups in NYC')
+
+st.text('Upload a file')
+uploaded_files = st.file_uploader("Choose an image to upload")
+if uploaded_files is not None:
+    st.text('image is displaying')
+
+image = Image.open(uploaded_files)
+st.image(image, caption='Image to perform OCR Text Extraction')
+
+
+
+# Use the outline_identifier function to identify the text in the image
+ocr_image = outline_identifier(image)
+st.image(ocr_image, caption='Bound each section of the image with these boxes')
+
 
 st.title('Uber pickups in NYC')
 
@@ -35,6 +53,7 @@ def outline_identifier(image):
   #Show the image
   cv2.imshow(img)
 
+  return img
 
 ocr_image = outline_identifier(image)
 st.image(ocr_image, caption='Bound each section of the image with these boxes')
