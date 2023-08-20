@@ -18,23 +18,6 @@ if uploaded_files is not None:
 image = Image.open(uploaded_files)
 st.image(image, caption='Image to perform OCR Text Extraction')
 
-
-
-# Use the outline_identifier function to identify the text in the image
-ocr_image = outline_identifier(image)
-st.image(ocr_image, caption='Bound each section of the image with these boxes')
-
-
-st.title('Uber pickups in NYC')
-
-st.text('Upload a file')
-uploaded_files = st.file_uploader("Choose an image to upload")
-if uploaded_files is not None:
-    st.text('image is displaying')
-
-image = Image.open(uploaded_files)
-st.image(image, caption='Image to perform OCR Text Extraction')
-
 def outline_identifier(image):
   #store the image input
   img = image
@@ -55,6 +38,7 @@ def outline_identifier(image):
 
   return img
 
+# Use the outline_identifier function to identify the text in the image
 ocr_image = outline_identifier(image)
 st.image(ocr_image, caption='Bound each section of the image with these boxes')
 
