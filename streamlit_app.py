@@ -5,8 +5,7 @@ from PIL import Image
 from PIL import ImageDraw
 
 # Import the outline_identifier function from the ocr_identification module
-#import pytesseract
-#from pytesseract import Output
+
 
 st.title('Uber pickups in NYC')
 
