@@ -1,6 +1,2 @@
-altair
-pandas
 streamlit
-numpy
-PIL
-easyocr
+opencv-python-headless
