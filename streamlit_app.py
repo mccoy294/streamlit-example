@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 from PIL import ImageDraw
+import easyocr as ocr
 
 # Import the outline_identifier function from the ocr_identification module
 
