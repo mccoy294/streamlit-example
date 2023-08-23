@@ -3,5 +3,4 @@ pandas
 streamlit
 numpy
 PIL
-tesseract-ocr
-pytesseract
+easyocr
