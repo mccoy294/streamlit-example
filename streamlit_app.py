@@ -7,7 +7,7 @@ import numpy as np #Image Processing
 st.title("Easy OCR - Extract Text from Images")
 
 #subtitle
-st.markdown("## Optical Character Recognition - Using `easyocr`, `streamlit`")
+st.markdown("## Optical Character Recognition for Invoices and Bill of Lading")
 
 st.markdown("")
 
@@ -39,8 +39,7 @@ if image is not None:
 
         st.write(result_text)
     #st.success("Here you go!")
-    st.balloons()
 else:
     st.write("Upload an Image")
 
-st.caption("Made with ❤️ by @1littlecoder")
+st.caption("Made by Ryan")
