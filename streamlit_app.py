@@ -1,6 +1,7 @@
 import streamlit as st
 from google.cloud import vision
 from PIL import Image
+import easyocr
 
 
 #title
