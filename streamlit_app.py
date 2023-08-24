@@ -3,7 +3,6 @@ from google.cloud import vision
 from PIL import Image
 import easyocr
 
-
 #title
 st.title("Easy OCR - Extract Text from Images")
 
@@ -47,4 +46,3 @@ class OCRApp:
 if __name__ == "__main__":
     app = OCRApp()
     app.run()
-
