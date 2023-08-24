@@ -11,7 +11,7 @@ google_vision_client = vision.ImageAnnotatorClient()
 st.title("OCR Comparison APP")
 iamge = st.file_uploader("Upload an image", type=["jpg","jpeg","png"])
 
-img = Image.open(image)
+img = vision.Image(image)
 
 
 
