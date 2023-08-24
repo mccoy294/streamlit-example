@@ -9,12 +9,7 @@ st.title("Easy OCR - Extract Text from Images")
 google_vision_client = vision.ImageAnnotatorClient()
 
 st.title("OCR Comparison APP")
-iamge = st.file_uploader("Upload an image", type=["jpg","jpeg","png"])
+image = st.file_uploader("Upload an image", type=["jpg","jpeg","png"])
 
-img = vision.Image(image)
-
-
-
-
-
-
+if image is not None:
+    img = vision.Image(image)
