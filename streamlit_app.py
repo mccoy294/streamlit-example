@@ -1,27 +1,32 @@
 import streamlit as st
+from PIL import Image
 import keras_ocr
-import cv2
 
-# Load the OCR model
-model = keras_ocr.load_model("model.h5")
+#title
+st.title("Easy OCR - Extract Text from Images")
 
-# Create a text analysis function
-def text_analysis(text):
-  # Recognize the text in the image
-  recognized_text = model.recognize(text)
+class OCRApp:
+    def __init__(self):
+        pass
+    
+    def run(self):
+            st.title("OCR Comparison App")
+            image = st.file_uploader("Upload an image", type=["jpg", "png","jpeg"])
+    
+            if image:
+                image_bytes = image.read()
+                image = Image.open(io.BytesIO(image_bytes))
+                st.image(image, caption='Uploaded Image.', use_column_width=True)
+                st.write("")
+                if st.button("Process with Keras-OCR and Pillow"):
+                    self.process_keras_ocr_pillow(image)
 
-  # Print the recognized text
-  print(recognized_text)
+    def process_keras_ocr_pillow(self, image):
+            reader = keras_ocr.Reader(['en'])
+            detection_boxes, recognition_boxes, text = reader.readtext(image)
+            for i in range(len(text)):
+                st.write(text[i])
 
-# Create a Streamlit app
-st.title("Text Analysis App")
-
-# Upload an image
-image = st.file_uploader("Upload an image")
-
-# If an image is uploaded, analyze the text
-if image is not None:
-  image = cv2.imdecode(np.fromstring(image.read(), np.uint8), cv2.IMREAD_COLOR)
-  text = keras_ocr.preprocess_image(image)
-  text_analysis(text)
-
+if __name__ == "__main__":
+    app = OCRApp()
+    app.run()
