@@ -8,7 +8,6 @@ st.title("Easy OCR - Extract Text from Images")
 
 class OCRApp:
     def __init__(self):
-        st.set_page_config(page_title="OCR App")
         self.google_vision_client = vision.ImageAnnotatorClient()
     
     def run(self):
@@ -24,8 +23,8 @@ class OCRApp:
 
     def process_google_vision(self, image_bytes):
             img = vision.Image(content=image_bytes)
-            st.write("Running Google Cloud Vision...")
-            response = self.google_vision_client.text_detection(image=img)
+            with st.spinner("Running Google Cloud Vision..."):
+                response = self.google_vision_client.text_detection(image=img)
             texts = response.text_annotations
             for text in texts:
                 description = text.description
