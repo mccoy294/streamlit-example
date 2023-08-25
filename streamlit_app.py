@@ -7,6 +7,7 @@ st.title("Simple Image Processing with OpenCV 1")
 
 # Upload an image
 image = st.file_uploader("Upload an image", type=["jpg", "png","jpeg"])
+st.image(image)
 
 # If an image is uploaded and it is a valid image, show it and do some basic processing
 if image and image.type in ["jpg", "png", "jpeg"]:
