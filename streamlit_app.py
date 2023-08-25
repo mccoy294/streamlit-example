@@ -15,5 +15,8 @@ if uploaded_file is not None:
 
 if uploaded_file is not None:
     # Convert the images from BGR to RGB
-    img = cv2.cvtColor(uploaded_file, cv2.COLOR_BGR2RGB)
+    img = cv2.imread(uploaded_file)
+
+    # Convert the image to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     st.image(img)
