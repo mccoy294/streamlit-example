@@ -14,5 +14,6 @@ if uploaded_file is not None:
     img = st.image(image)
 
 if uploaded_file is not None:
-    half = cv2.resize(uploaded_file, (0, 0), fx = 0.1, fy = 0.1)
-    st.image(half)
+    # Convert the images from BGR to RGB
+    img = cv2.cvtColor(uploaded_file, cv2.COLOR_BGR2RGB)
+    st.image(img)
