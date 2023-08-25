@@ -1,5 +1,6 @@
 import streamlit as st
 import keras_ocr
+import cv2
 
 # Load the OCR model
 model = keras_ocr.load_model("model.h5")
