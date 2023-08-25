@@ -6,9 +6,11 @@ import easyocr
 #title
 st.title("Easy OCR - Extract Text from Images")
 
+project_id = "disco-park-395817"
+
 class OCRApp:
     def __init__(self):
-        self.google_vision_client = vision.ImageAnnotatorClient()
+        self.google_vision_client = vision.ImageAnnotatorClient(project=project_id)
     
     def run(self):
             st.title("OCR Comparison App")
