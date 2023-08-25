@@ -9,7 +9,8 @@ image = st.file_uploader("Upload an image", type=["jpg", "png","jpeg"])
 
 # If an image is uploaded, show it and do some basic processing
 if image:
-    img = cv2.imread(image)
+    image_string = str(image)
+    img = cv2.imread(image_string)
     st.image(img)
 
     # Convert the image to grayscale
