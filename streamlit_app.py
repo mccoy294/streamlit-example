@@ -13,5 +13,6 @@ if uploaded_file is not None:
     image = uploaded_file.read()
     img = st.image(image)
 
-half = cv2.resize(image, (0, 0), fx = 0.1, fy = 0.1)
-st.image(half)
+if uploaded_file is not None:
+    half = cv2.resize(uploaded_file, (0, 0), fx = 0.1, fy = 0.1)
+    st.image(half)
