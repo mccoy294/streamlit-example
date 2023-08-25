@@ -1,4 +1,3 @@
 streamlit
-keras-ocr
-Pillow
+opencv-python-headless
 
