@@ -11,6 +11,7 @@ image = st.file_uploader("Upload an image", type=["jpg", "png","jpeg"])
 if image:
     image_string = str(image)
     img = cv2.imread(image_string)
+    img = Image.fromarray(img)
     st.image(img)
 
     # Convert the image to grayscale
