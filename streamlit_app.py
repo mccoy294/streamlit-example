@@ -3,12 +3,11 @@ from google.cloud import vision
 from PIL import Image
 import easyocr
 
-#title
-st.title("Easy OCR - Extract Text from Images")
+# Set the page title
+st.set_page_config(page_title="OCR App")
 
 class OCRApp:
     def __init__(self):
-        st.set_page_config(page_title="OCR App")
         self.google_vision_client = vision.ImageAnnotatorClient()
     
     def run(self):
