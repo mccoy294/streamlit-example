@@ -3,7 +3,7 @@ import cv2
 import PIL
 
 #title
-st.title("Simple Image Processing with OpenCV 1")
+st.title("Simple Image Processing with OpenCV 2")
 
 # Upload an image
 image = st.file_uploader("Upload an image", type=["jpg", "png","jpeg"])
