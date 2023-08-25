@@ -27,3 +27,4 @@ if image:
     edges = cv2.Canny(blurred_img, 50, 150)
     st.image(edges)
 
+
