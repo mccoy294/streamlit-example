@@ -1,5 +1,6 @@
 import streamlit as st
 import cv2
+import PIL
 
 #title
 st.title("Simple Image Processing with OpenCV")
