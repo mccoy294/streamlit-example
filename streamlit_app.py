@@ -1,37 +1,26 @@
 import streamlit as st
-from google.cloud import vision
-from PIL import Image
-import easyocr
+import keras_ocr
 
-#title
-st.title("Easy OCR - Extract Text from Images")
+# Load the OCR model
+model = keras_ocr.load_model("model.h5")
 
-project_id = "disco-park-395817"
+# Create a text analysis function
+def text_analysis(text):
+  # Recognize the text in the image
+  recognized_text = model.recognize(text)
 
-class OCRApp:
-    def __init__(self):
-        self.google_vision_client = vision.ImageAnnotatorClient(project=project_id)
-    
-    def run(self):
-            st.title("OCR Comparison App")
-            image = st.file_uploader("Upload an image", type=["jpg", "png","jpeg"])
-    
-            if image:
-                image_bytes = image.read()
-                st.image(image, caption='Uploaded Image.', use_column_width=True)
-                st.write("")
-                if st.button("Process with Google Cloud Vision"):
-                    self.process_google_vision(image_bytes)
+  # Print the recognized text
+  print(recognized_text)
 
-    def process_google_vision(self, image_bytes):
-            img = vision.Image(content=image_bytes)
-            with st.spinner("Running Google Cloud Vision..."):
-                response = self.google_vision_client.text_detection(image=img)
-            texts = response.text_annotations
-            for text in texts:
-                description = text.description
-                st.write(f"Text: {description}")
+# Create a Streamlit app
+st.title("Text Analysis App")
 
-if __name__ == "__main__":
-    app = OCRApp()
-    app.run()
+# Upload an image
+image = st.file_uploader("Upload an image")
+
+# If an image is uploaded, analyze the text
+if image is not None:
+  image = cv2.imdecode(np.fromstring(image.read(), np.uint8), cv2.IMREAD_COLOR)
+  text = keras_ocr.preprocess_image(image)
+  text_analysis(text)
+
