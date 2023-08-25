@@ -8,8 +8,8 @@ st.title("Simple Image Processing with OpenCV")
 # Upload an image
 image = st.file_uploader("Upload an image", type=["jpg", "png","jpeg"])
 
-# If an image is uploaded, show it and do some basic processing
-if image:
+# If an image is uploaded and it is a valid image, show it and do some basic processing
+if image and image.type in ["jpg", "png", "jpeg"]:
     image_string = str(image)
     img = cv2.imread(image_string)
     img = Image.fromarray(img)
@@ -26,5 +26,3 @@ if image:
     # Edge detection
     edges = cv2.Canny(blurred_img, 50, 150)
     st.image(edges)
-
-
