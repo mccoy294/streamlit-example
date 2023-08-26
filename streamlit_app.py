@@ -42,7 +42,7 @@ if uploaded_file is not None:
 	
     # OCR the input image using EasyOCR
     st.write("[INFO] OCR'ing input image...")
-    #reader = Reader("en")
+    reader = easyocr.Reader("en")
     #results = reader.readtext(image)
 
 
