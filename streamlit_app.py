@@ -31,5 +31,5 @@ for idx in range(len(result)):
   textdic_easyocr[pred_text]['pred_confidence'] = pred_confidence
 
  # create a dataframe which shows the predicted text and prediction confidence
-  df = pd.DataFrame.from_dict(textdic_easyocr).T
-  st.table(df)
+df = pd.DataFrame.from_dict(textdic_easyocr).T
+st.table(df)
