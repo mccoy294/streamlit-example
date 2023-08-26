@@ -8,9 +8,9 @@ from matplotlib import pyplot as plt
 
 
 # main title
-st.title("Get text from image with EasyOCR") 
+st.title("Text Extract from Bill of Lading") 
 # subtitle
-st.markdown("## EasyOCRR with Streamlit")
+st.markdown("## Verion 1.0.0 of Document reading")
 
 # upload image file
 file = st.file_uploader(label = "Upload your image", type=['png', 'jpg', 'jpeg'])
