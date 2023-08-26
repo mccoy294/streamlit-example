@@ -39,10 +39,10 @@ if uploaded_file is not None:
     # Display the grayscale image using Streamlit
     st.image(thresh, caption='Threshold Image', use_column_width=True)
 	
-	# OCR the input image using EasyOCR
-	st.write("[INFO] OCR'ing input image...")
-	reader = Reader("en")
-	results = reader.readtext(image)
+    # OCR the input image using EasyOCR
+    st.write("[INFO] OCR'ing input image...")
+    reader = Reader("en")
+    results = reader.readtext(image)
 
 
 
