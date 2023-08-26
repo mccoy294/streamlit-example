@@ -7,4 +7,7 @@ from PIL import Image, ImageDraw
 from matplotlib import pyplot as plt
 
 
-st.title("This is a test for easyocr")
+# main title
+st.title("Get text from image with EasyOCR") 
+# subtitle
+st.markdown("## EasyOCRR with Streamlit")
