@@ -25,9 +25,13 @@ if uploaded_file is not None:
 
     # Blur the image using GaussianBlur
     blurred = cv2.GaussianBlur(gray, (7, 7), 0)
+    
+    #Use addaptive Threholding to make a better image
+    (T, threshInv) = cv2.threshold(blurred, 230, 255,
+	cv2.THRESH_BINARY_INV)
 
     # Display the grayscale image using Streamlit
-    st.image(blurred, caption='Blurred Image', use_column_width=True)
+    st.image(threshInv, caption='Threshold Image', use_column_width=True)
 
 
 
