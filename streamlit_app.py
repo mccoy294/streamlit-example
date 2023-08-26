@@ -23,8 +23,11 @@ if uploaded_file is not None:
     # Convert the image to grayscale
     gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
 
+    # Blur the image using GaussianBlur
+    blurred = cv2.GaussianBlur(gray, (7, 7), 0)
+
     # Display the grayscale image using Streamlit
-    st.image(gray, caption='Grayscale Image', use_column_width=True)
+    st.image(blurred, caption='Blurred Image', use_column_width=True)
 
 
 
