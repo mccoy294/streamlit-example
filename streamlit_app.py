@@ -12,10 +12,12 @@ st.title("Text Extract from Bill of Lading")
 # subtitle
 st.markdown("## Verion 1.0.0 of Document reading")
 
-if image_file is not None:
-  # upload image file
-  file = st.file_uploader(label = "Upload your image", type=['png', 'jpg', 'jpeg'])
-  
+
+# upload image file
+file = st.file_uploader(label = "Upload your image", type=['png', 'jpg', 'jpeg'])
+
+if file is not None:
+
   image = Image.open(file) # read image with PIL library
   st.image(image) #display
   
