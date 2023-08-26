@@ -7,6 +7,12 @@ st.title('🎈 App Name')
 
 st.write('Hello world!')
 
+def cleanup_text(text):
+	# strip out non-ASCII text so we can draw the text on the image
+	# using OpenCV
+	return "".join([c if ord(c) < 128 else "" for c in text]).strip()
+
+
 uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
@@ -32,6 +38,11 @@ if uploaded_file is not None:
 
     # Display the grayscale image using Streamlit
     st.image(thresh, caption='Threshold Image', use_column_width=True)
+	
+	# OCR the input image using EasyOCR
+	st.write("[INFO] OCR'ing input image...")
+	reader = Reader("en")
+	results = reader.readtext(image)
 
 
 
