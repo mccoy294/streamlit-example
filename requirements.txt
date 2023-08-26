@@ -1,8 +1,8 @@
 streamlit
 torch
 torchvision
-opencv-python-headless==4.5.3.56
-scipy==1.7.1
-numpy==1.21.4
-Pillow>=8.3.2
+opencv-python-headless
+scipy
+numpy
+Pillow
 easyocr
