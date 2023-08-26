@@ -18,7 +18,7 @@ col1.write("This is column 1")
 col2.write("This is column 2")
 
 # upload image file
-file = st.file_uploader(label = "Upload your image", type=['png', 'jpg', 'jpeg'])
+file = st.sidebar.file_uploader(label = "Upload your image", type=['png', 'jpg', 'jpeg'])
 
 if file is not None:
 
