@@ -2,7 +2,7 @@ import streamlit as st
 import cv2
 import PIL
 import numpy as np
-from easyocr
+import easyocr
 
 st.title('🎈 App Name 1')
 
