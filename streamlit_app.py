@@ -28,7 +28,7 @@ if uploaded_file is not None:
     
     #Use addaptive Threholding to make a better image
     thresh = cv2.adaptiveThreshold(blurred, 255,
-	cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 21, 10)
+	cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 21, 4)
 
     # Display the grayscale image using Streamlit
     st.image(thresh, caption='Threshold Image', use_column_width=True)
