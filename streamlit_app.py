@@ -33,3 +33,16 @@ for idx in range(len(result)):
  # create a dataframe which shows the predicted text and prediction confidence
 df = pd.DataFrame.from_dict(textdic_easyocr).T
 st.table(df)
+
+
+def rectangle(image, result):
+    """ draw rectangles on image based on predicted coordinates"""
+    draw = ImageDraw.Draw(image)
+    for res in result:
+        top_left = tuple(res[0][0]) # top left coordinates as tuple
+        bottom_right = tuple(res[0][2]) # bottom right coordinates as tuple
+        draw.rectangle((top_left, bottom_right), outline="blue", width=2)
+    #display image on streamlit
+    st.image(image)
+
+rectangle(image, result)
