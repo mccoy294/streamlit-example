@@ -4,7 +4,7 @@ import PIL
 import numpy as np
 from easyocr import Reader
 
-st.title('🎈 App Name')
+st.title('🎈 App Name 1')
 
 st.write('Hello world!')
 
