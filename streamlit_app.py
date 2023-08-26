@@ -11,3 +11,6 @@ from matplotlib import pyplot as plt
 st.title("Get text from image with EasyOCR") 
 # subtitle
 st.markdown("## EasyOCRR with Streamlit")
+
+# upload image file
+file = st.file_uploader(label = "Upload your image", type=['png', 'jpg', 'jpeg'])
