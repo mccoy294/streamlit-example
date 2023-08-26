@@ -2,7 +2,7 @@ import streamlit as st
 import cv2
 import PIL
 import numpy as np
-import easyocr
+from easyocr import Reader
 
 st.title('🎈 App Name')
 
@@ -42,8 +42,8 @@ if uploaded_file is not None:
 	
     # OCR the input image using EasyOCR
     st.write("[INFO] OCR'ing input image...")
-    reader = Reader("en")
-    results = reader.readtext(image)
+    #reader = Reader("en")
+    #results = reader.readtext(image)
 
 
 
