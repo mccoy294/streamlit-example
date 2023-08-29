@@ -4,4 +4,4 @@ streamlit
 easyocr
 Pillow
 matplotlib
-re
+regex
